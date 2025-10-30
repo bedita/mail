@@ -33,7 +33,7 @@ class PlaceholderMailer extends BaseMailer
     /**
      * @inheritDoc
      */
-    public function __construct($config)
+    public function __construct(array|string $config)
     {
         $placeholdeConfig = (array)static::getConfig(static::$name);
         if (empty($config) && !empty($placeholdeConfig)) {
@@ -130,16 +130,17 @@ class PlaceholderMailer extends BaseMailer
      * @param string $name Template object unique name.
      * @param array $data The data.
      * @param array $config Email message config, including 'placeholderOptions'.
+     * @param array $templateData The template data.
      * @return \Cake\Mailer\Mailer
      */
-    public function placeholderMessage(string $name, array $data, array $config = []): Mailer
+    public function placeholderMessage(string $name, array $data, array $config = [], array $templateData = []): Mailer
     {
         $nameConfig = (array)static::getConfig($name);
         $config = array_merge($nameConfig, $config);
 
         $options = (array)Hash::get($config, 'placeholderOptions');
         $options = array_merge($this->placeholderOptions, $options);
-        $items = $this->loadTemplate($name, $options);
+        $items = !empty($templateData) ? $templateData : $this->loadTemplate($name, $options);
 
         $body = $this->processContent($items['content'], $data);
         $this->setViewVars(compact('body'));
@@ -151,7 +152,7 @@ class PlaceholderMailer extends BaseMailer
         }
 
         if (empty($config['transport'])) {
-            $config['transport'] = Hash::get(static::getConfig('default'), 'transport', 'default');
+            $config['transport'] = Hash::get((array)static::getConfig('default'), 'transport', 'default');
         }
 
         return $this->setProfile($config);

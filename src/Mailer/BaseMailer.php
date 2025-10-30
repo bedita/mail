@@ -17,16 +17,16 @@ abstract class BaseMailer extends Mailer
     /**
      * Site url
      *
-     * @var string
+     * @var string|null
      */
-    protected string $siteUrl = null;
+    protected ?string $siteUrl = null;
 
     /**
      * Lang used, i.e. `it`, `en`
      *
-     * @var string
+     * @var string|null
      */
-    protected string $lang = null;
+    protected ?string $lang = null;
 
     /**
      * {@inheritDoc}
