@@ -21,6 +21,7 @@ declare(strict_types=1);
  * installed as a dependency of an application.
  */
 
+use BEdita\Mail\Plugin as MailPlugin;
 use Cake\Cache\Cache;
 use Cake\Cache\Engine\ArrayEngine;
 use Cake\Cache\Engine\NullEngine;
@@ -106,7 +107,7 @@ Router::reload();
 Security::setSalt('BEDITA');
 
 // Load plugin
-$plugin = new \BEdita\Mail\Plugin(['path' => ROOT . DS]);
+$plugin = new MailPlugin(['path' => ROOT . DS]);
 Plugin::getCollection()->add($plugin);
 // Load routes
 if (file_exists(ROOT . DS . 'config' . DS . 'routes.php')) {

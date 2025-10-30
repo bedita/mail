@@ -51,7 +51,7 @@ class PlaceholderMailerTest extends TestCase
         ];
 
         TransportFactory::setConfig('default', ['className' => DebugTransport::class]);
-        $mailer = new PlaceholderMailer();
+        $mailer = new PlaceholderMailer([]);
         $result = $mailer->send('placeholderMessage', [$name, $data, $config, $templateData]);
         $headers = Hash::get($result, 'headers');
         $message = trim((string)Hash::get($result, 'message'));

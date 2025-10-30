@@ -5,6 +5,7 @@ namespace BEdita\Mail;
 
 use Cake\Core\BasePlugin;
 use Cake\Core\PluginApplicationInterface;
+use Override;
 
 /**
  * Plugin for BEdita\Mail
@@ -14,11 +15,9 @@ use Cake\Core\PluginApplicationInterface;
 class Plugin extends BasePlugin
 {
     /**
-     * Load all the plugin configuration and bootstrap logic.
-     *
-     * @param \Cake\Core\PluginApplicationInterface $app The host application
-     * @return void
+     * {@inheritDoc}
      */
+    #[Override]
     public function bootstrap(PluginApplicationInterface $app): void
     {
         parent::bootstrap($app);

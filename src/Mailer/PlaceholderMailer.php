@@ -33,7 +33,7 @@ class PlaceholderMailer extends BaseMailer
     /**
      * @inheritDoc
      */
-    public function __construct(array $config = [])
+    public function __construct(array|string $config)
     {
         $placeholdeConfig = (array)static::getConfig(static::$name);
         if (empty($config) && !empty($placeholdeConfig)) {
