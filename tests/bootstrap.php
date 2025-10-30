@@ -25,6 +25,7 @@ use Cake\Cache\Cache;
 use Cake\Cache\Engine\ArrayEngine;
 use Cake\Cache\Engine\NullEngine;
 use Cake\Core\Configure;
+use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Log\Engine\ConsoleLog;
 use Cake\Log\Log;
@@ -103,6 +104,14 @@ ConnectionManager::alias('test', 'default');
 
 Router::reload();
 Security::setSalt('BEDITA');
+
+// Load plugin
+$plugin = new \BEdita\Mail\Plugin(['path' => ROOT . DS]);
+Plugin::getCollection()->add($plugin);
+// Load routes
+if (file_exists(ROOT . DS . 'config' . DS . 'routes.php')) {
+    $plugin->routes(Router::createRouteBuilder('/'));
+}
 
 // clear all before running tests
 TableRegistry::getTableLocator()->clear();
