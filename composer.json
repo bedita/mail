@@ -1,0 +1,73 @@
+{
+    "name": "bedita/mail",
+    "description": "BEdita Mail Plugin",
+    "homepage": "https://www.bedita.com",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.3",
+        "bedita/api": "6.x-dev",
+        "bedita/core": "6.x-dev",
+        "cakephp/cakephp": "^5.2"
+    },
+    "require-dev": {
+        "cakephp/cakephp-codesniffer": "^5.0",
+        "cakephp/debug_kit": "^5.0",
+        "phpstan/phpstan": "^1.12",
+        "phpunit/phpunit": "^10.5.5 || ^11.1.3",
+        "psy/psysh": "@stable",
+        "vimeo/psalm": "^6.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "BEdita\\Mail\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BEdita\\Mail\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "migrate": [
+            "@migrations",
+            "@project-model"
+        ],
+        "migrations": [
+            "bin/cake migrations migrate -p BEdita/Core",
+            "bin/cake migrations migrate -p BEdita/Mail",
+            "bin/cake migrations migrate"
+        ],
+        "project-model": [
+            "bin/cake project_model"
+        ],
+        "check": [
+            "@test",
+            "@cs-check"
+        ],
+        "cs-setup": [
+            "vendor/bin/phpcs --config-set installed_paths vendor/cakephp/cakephp-codesniffer",
+            "vendor/bin/phpcs --config-set default_standard CakePHP",
+            "vendor/bin/phpcs --config-set colors 1"
+        ],
+        "cs-check": "vendor/bin/phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
+        "cs-fix": "vendor/bin/phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
+        "psalm": "vendor/bin/psalm",
+        "stan": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/phpunit --colors=always",
+        "coverage": "vendor/bin/phpunit --colors=always --coverage-html coverage",
+        "update-dev": [
+            "@composer update",
+            "@cs-setup"
+        ]
+    },
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "cakephp/plugin-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "wikimedia/composer-merge-plugin": true
+        }
+    }
+}

@@ -1,0 +1,14 @@
+/composer.lock
+/phpcs.xml
+/phpstan.neon
+/phpunit.xml
+/vendor
+.vscode/
+.history/
+/coverage
+/logs
+/plugins
+/tmp
+.phpunit.result.cache
+.phpunit.cache
+phinx.yml
