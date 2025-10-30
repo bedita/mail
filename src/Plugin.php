@@ -15,7 +15,7 @@ use Override;
 class Plugin extends BasePlugin
 {
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     #[Override]
     public function bootstrap(PluginApplicationInterface $app): void
