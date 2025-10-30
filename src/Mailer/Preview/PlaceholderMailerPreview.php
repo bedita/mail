@@ -6,6 +6,8 @@ declare(strict_types=1);
  */
 namespace BEdita\Mail\Mailer\Preview;
 
+use BEdita\Mail\Mailer\PlaceholderMailer;
+use Cake\Core\Configure;
 use Cake\Mailer\Mailer;
 use DebugKit\Mailer\MailPreview;
 
@@ -38,8 +40,9 @@ class PlaceholderMailerPreview extends MailPreview
                 'lang' => 'en',
             ],
         ];
+        /** @var \BEdita\Mail\Mailer\PlaceholderMailer $mailer */
+        $mailer = $this->getMailer(PlaceholderMailer::class, (array)Configure::read('PlaceholderMailer'));
 
-        return $this->getMailer('Placeholder')
-            ->placeholderMessage('test-message', $data, $config);
+        return $mailer->placeholderMessage('test-message', $data, $config);
     }
 }
