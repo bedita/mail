@@ -47,4 +47,33 @@ class PlaceholderMessageControllerTest extends TestCase
         };
         $controller->send();
     }
+
+    /**
+     * Test `send` method.
+     *
+     * @return void
+     */
+    public function testSend(): void
+    {
+        $serverRequest = new ServerRequest([
+            'environment' => [
+                'REQUEST_METHOD' => 'POST',
+            ],
+            'post' => [
+                'name' => 'test_template',
+            ],
+        ]);
+        $controller = new class ($serverRequest) extends PlaceholderMessageController {
+            public function initialize(): void
+            {
+            }
+
+            protected function sendMail(string $name, array $data = [], array $config = []): void
+            {
+                // Do nothing
+            }
+        };
+        $response = $controller->send();
+        $this->assertSame(204, $response->getStatusCode());
+    }
 }

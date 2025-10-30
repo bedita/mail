@@ -34,9 +34,23 @@ class PlaceholderMessageController extends JsonBaseController
         }
         $data = (array)$this->request->getData('data');
         $config = (array)$this->request->getData('config');
-        $this->getMailer(PlaceholderMailer::class, (array)Configure::read('PlaceholderMailer'))
-            ->send('placeholderMessage', [$name, $data, $config]);
+        $this->sendMail($name, $data, $config);
 
         return $this->getResponse()->withStatus(204);
+    }
+
+    /**
+     * Send placeholder message mail.
+     *
+     * @param string $name Message template name
+     * @param array<string, mixed> $data Placeholder data
+     * @param array<string, mixed> $config Mailer config
+     * @return void
+     * @codeCoverageIgnore
+     */
+    protected function sendMail(string $name, array $data = [], array $config = []): void
+    {
+        $this->getMailer(PlaceholderMailer::class, (array)Configure::read('PlaceholderMailer'))
+            ->send('placeholderMessage', [$name, $data, $config]);
     }
 }

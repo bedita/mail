@@ -152,7 +152,7 @@ class PlaceholderMailer extends BaseMailer
         }
 
         if (empty($config['transport'])) {
-            $config['transport'] = Hash::get(static::getConfig('default'), 'transport', 'default');
+            $config['transport'] = Hash::get((array)static::getConfig('default'), 'transport', 'default');
         }
 
         return $this->setProfile($config);
