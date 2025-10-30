@@ -42,7 +42,11 @@ class PlaceholderMailerPreview extends MailPreview
         ];
         /** @var \BEdita\Mail\Mailer\PlaceholderMailer $mailer */
         $mailer = $this->getMailer(PlaceholderMailer::class, (array)Configure::read('PlaceholderMailer'));
+        $templateData = [
+            'content' => 'Hello {{user.name}} {{user.surname}}, this is a test message sent to {{user.email}}.',
+            'subject' => 'Test Message for {{user.name}}',
+        ];
 
-        return $mailer->placeholderMessage('test-message', $data, $config);
+        return $mailer->placeholderMessage('test-message', $data, $config, $templateData);
     }
 }

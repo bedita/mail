@@ -130,16 +130,17 @@ class PlaceholderMailer extends BaseMailer
      * @param string $name Template object unique name.
      * @param array $data The data.
      * @param array $config Email message config, including 'placeholderOptions'.
+     * @param array $templateData The template data.
      * @return \Cake\Mailer\Mailer
      */
-    public function placeholderMessage(string $name, array $data, array $config = []): Mailer
+    public function placeholderMessage(string $name, array $data, array $config = [], array $templateData = []): Mailer
     {
         $nameConfig = (array)static::getConfig($name);
         $config = array_merge($nameConfig, $config);
 
         $options = (array)Hash::get($config, 'placeholderOptions');
         $options = array_merge($this->placeholderOptions, $options);
-        $items = $this->loadTemplate($name, $options);
+        $items = !empty($templateData) ? $templateData : $this->loadTemplate($name, $options);
 
         $body = $this->processContent($items['content'], $data);
         $this->setViewVars(compact('body'));
