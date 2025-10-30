@@ -13,6 +13,8 @@ use DebugKit\Mailer\MailPreview;
 
 /**
  * Preview test emails.
+ *
+ * @codeCoverageIgnore
  */
 class PlaceholderMailerPreview extends MailPreview
 {
