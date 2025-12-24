@@ -6,15 +6,15 @@
     "license": "MIT",
     "require": {
         "php": ">=8.3",
-        "bedita/api": "6.x-dev",
-        "bedita/core": "6.x-dev",
+        "bedita/api": "^6.0",
+        "bedita/core": "^6.0",
         "cakephp/cakephp": "^5.2"
     },
     "require-dev": {
         "cakephp/cakephp-codesniffer": "^5.0",
         "cakephp/debug_kit": "^5.0",
         "phpstan/phpstan": "^1.12",
-        "phpunit/phpunit": "^11.1",
+        "phpunit/phpunit": "^11.5 || ^12.1",
         "psy/psysh": "@stable",
         "vimeo/psalm": "^6.8"
     },
@@ -66,8 +66,7 @@
         "sort-packages": true,
         "allow-plugins": {
             "cakephp/plugin-installer": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "wikimedia/composer-merge-plugin": true
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     }
 }
