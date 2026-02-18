@@ -12,14 +12,6 @@ use Override;
  *
  * @codeCoverageIgnore
  */
-class Plugin extends BasePlugin
+class MailPlugin extends BasePlugin
 {
-    /**
-     * @inheritDoc
-     */
-    #[Override]
-    public function bootstrap(PluginApplicationInterface $app): void
-    {
-        parent::bootstrap($app);
-    }
 }
