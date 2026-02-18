@@ -21,7 +21,7 @@ declare(strict_types=1);
  * installed as a dependency of an application.
  */
 
-use BEdita\Mail\Plugin as MailPlugin;
+use BEdita\Mail\MailPlugin;
 use Cake\Cache\Cache;
 use Cake\Cache\Engine\ArrayEngine;
 use Cake\Cache\Engine\NullEngine;

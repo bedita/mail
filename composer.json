@@ -6,8 +6,8 @@
     "license": "MIT",
     "require": {
         "php": ">=8.3",
-        "bedita/api": "^6.0",
-        "bedita/core": "^6.0",
+        "bedita/api": "^6.4.1",
+        "bedita/core": "^6.4.1",
         "cakephp/cakephp": "^5.2"
     },
     "require-dev": {
