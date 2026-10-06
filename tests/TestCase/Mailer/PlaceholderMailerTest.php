@@ -9,17 +9,16 @@ use Cake\Mailer\TransportFactory;
 use Cake\TestSuite\TestCase;
 use Cake\Utility\Hash;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\CoversMethod;
 
 /**
  * {@see \BEdita\Mail\Mailer\PlaceholderMailer} Test Case
  */
 #[CoversClass(PlaceholderMailer::class)]
-#[CoversMethod(PlaceholderMailer::class, '__construct')]
-#[CoversMethod(PlaceholderMailer::class, 'loadTemplate')]
-#[CoversMethod(PlaceholderMailer::class, 'placeholderMessage')]
-#[CoversMethod(PlaceholderMailer::class, 'processContent')]
-#[CoversMethod(PlaceholderMailer::class, 'processConditionals')]
+// __construct
+// loadTemplate
+// placeholderMessage
+// processContent
+// processConditionals
 class PlaceholderMailerTest extends TestCase
 {
     /**
