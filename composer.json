@@ -13,7 +13,9 @@
     "require-dev": {
         "cakephp/cakephp-codesniffer": "^5.0",
         "cakephp/debug_kit": "^5.0",
-        "phpstan/phpstan": "^1.12",
+        "phpstan/phpstan": "^2",
+        "phpstan/phpstan-deprecation-rules": "^2",
+        "phpstan/phpstan-phpunit": "^2",
         "phpunit/phpunit": "^11.5 || ^12.1",
         "psy/psysh": "@stable",
         "vimeo/psalm": "^6.8"
