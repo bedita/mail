@@ -14,11 +14,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
  * {@see \BEdita\Mail\Mailer\PlaceholderMailer} Test Case
  */
 #[CoversClass(PlaceholderMailer::class)]
-// __construct
-// loadTemplate
-// placeholderMessage
-// processContent
-// processConditionals
 class PlaceholderMailerTest extends TestCase
 {
     /**

@@ -13,9 +13,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
  * {@see \BEdita\Mail\Mailer\BaseMailer} Test Case
  */
 #[CoversClass(BaseMailer::class)]
-// __construct
-// setLocale
-// setLocaleFromUser
 class BaseMailerTest extends TestCase
 {
     /**
