@@ -8,15 +8,11 @@ use BEdita\Mail\Mailer\BaseMailer;
 use Cake\Core\Configure;
 use Cake\TestSuite\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\CoversMethod;
 
 /**
  * {@see \BEdita\Mail\Mailer\BaseMailer} Test Case
  */
 #[CoversClass(BaseMailer::class)]
-#[CoversMethod(BaseMailer::class, '__construct')]
-#[CoversMethod(BaseMailer::class, 'setLocale')]
-#[CoversMethod(BaseMailer::class, 'setLocaleFromUser')]
 class BaseMailerTest extends TestCase
 {
     /**
